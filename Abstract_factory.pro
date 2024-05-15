@@ -19,14 +19,14 @@ HEADERS += \
     classunitCPP.h \
     classunitCSharp.h \
     classunitJava.h \
+    generateCode.h \
     methodunitCPP.h \
     methodunitCSharp.h \
     methodunitJava.h \
     printoperatorunitCPP.h \
     printoperatorunitCSharp.h \
     printoperatorunitJava.h \
-    unit.h \
-    unitС++.h
+    unit.h 
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
