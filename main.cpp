@@ -1,23 +1,23 @@
 #include "unit.h"
-#include "classunit.h"
-#include "printoperatorunit.h"
-#include "methodunit.h"
+#include "classunitCPP.h"
+#include "printoperatorunitCPP.h"
+#include "methodunitCPP.h"
 #include <QApplication>
 #include "iostream"
 #include "string.h"
 
 std::string generateProgram()
 {
-    ClassUnit myClass( "MyClass" );
+    ClassUnitCPP myClass( "MyClass" );
     myClass.add(
-        std::make_shared< MethodUnit >( "testFunc1", "void", 0 ), ClassUnit::PUBLIC);
+        std::make_shared< MethodUnitCPP >( "testFunc1", "void", 0 ), ClassUnitCPP::PUBLIC);
     myClass.add(
-        std::make_shared< MethodUnit >( "testFunc2", "void", MethodUnit::STATIC ), ClassUnit::PRIVATE);
+        std::make_shared< MethodUnitCPP >( "testFunc2", "void", MethodUnitCPP::STATIC ), ClassUnitCPP::PRIVATE);
     myClass.add(
-        std::make_shared< MethodUnit >( "testFunc3", "void", MethodUnit::VIRTUAL | MethodUnit::CONST ), ClassUnit::PUBLIC);
-    auto method = std::make_shared< MethodUnit >( "testFunc4", "void", MethodUnit::STATIC );
-    method->add( std::make_shared< PrintOperatorUnit >( R"(Hello, world!\n)" ) );
-    myClass.add( method, ClassUnit::PROTECTED );
+        std::make_shared< MethodUnitCPP >( "testFunc3", "void", MethodUnitCPP::VIRTUAL | MethodUnitCPP::CONST ), ClassUnitCPP::PUBLIC);
+    auto method = std::make_shared< MethodUnitCPP >( "testFunc4", "void", MethodUnitCPP::STATIC );
+    method->add( std::make_shared< PrintOperatorUnitCPP >( R"(Hello, world!\n)" ) );
+    myClass.add( method, ClassUnitCPP::PROTECTED );
     return myClass.compile();
 }
 

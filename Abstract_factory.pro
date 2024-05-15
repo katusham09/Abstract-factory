@@ -12,10 +12,21 @@ SOURCES += \
     main.cpp
 
 HEADERS += \
-    classunit.h \
-    methodunit.h \
-    printoperatorunit.h \
-    unit.h
+    CPPFactory.h \
+    CSharpFactory.h \
+    JavaFactory.h \
+    UnitFactory.h \
+    classunitCPP.h \
+    classunitCSharp.h \
+    classunitJava.h \
+    methodunitCPP.h \
+    methodunitCSharp.h \
+    methodunitJava.h \
+    printoperatorunitCPP.h \
+    printoperatorunitCSharp.h \
+    printoperatorunitJava.h \
+    unit.h \
+    unitС++.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -1,0 +1,4 @@
+#ifndef CLASSUNITJAVA_H
+#define CLASSUNITJAVA_H
+
+#endif // CLASSUNITJAVA_H
