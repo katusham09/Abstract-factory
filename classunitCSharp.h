@@ -36,7 +36,7 @@ public:
             if( m_fields[ i ].empty() ) {
                 continue;
             }
-            result += ACCESS_MODIFIERS[ i ] + ":\n";
+            result += ACCESS_MODIFIERS[ i ];
             for( const auto& f : m_fields[ i ] ) {
                 result += f->compile( level + 1 );
             }

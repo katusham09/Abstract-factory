@@ -12,8 +12,15 @@
 int main(int argc, char *argv[]) {
     QCoreApplication a(argc, argv);
     GenerateCode generator;
-    std::string code = generator.generateProgram();
+//    std::string code = generator.generateProgramCPP();
+//    std::cout << code << std::endl; // Выводим сгенерированный код
+
+//    std::string code = generator.generateProgramCSharp();
+//    std::cout << code << std::endl; // Выводим сгенерированный код
+
+    std::string code = generator.generateProgramJava();
     std::cout << code << std::endl; // Выводим сгенерированный код
+
     return 0;
 }
 
