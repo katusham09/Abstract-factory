@@ -18,6 +18,26 @@
 
 class GenerateCode {
 public:
+    std::string generateProgram(std::shared_ptr<UnitFactory> factory)
+    {
+        auto myClass = factory->createClassUnit("MyClass");
+
+        // Добавляем методы в MyClass
+        myClass->add(factory->createMethodUnit("testFunc1", "void", 0), ClassUnitCPP::PUBLIC);
+        myClass->add(factory->createMethodUnit("testFunc2", "void", MethodUnitCPP::STATIC), ClassUnitCPP::PRIVATE);
+        myClass->add(factory->createMethodUnit("testFunc3", "void", MethodUnitCPP::VIRTUAL | MethodUnitCPP::CONST), ClassUnitCPP::PUBLIC);
+
+        // Создаем и добавляем testFunc4 с оператором printf
+        auto method = factory->createMethodUnit("testFunc4", "void", MethodUnitCPP::STATIC);
+        method->add(factory->createPrintOperatorUnit(R"(Hello, world!\n)"), ClassUnitCPP::PROTECTED);
+        myClass->add(method, ClassUnitCPP::PROTECTED);
+
+        // Добавляем остальные методы и операторы для конкретного языка
+        // ...
+
+        return myClass->compile();
+    }
+
     std::string generateProgramCPP() {
         auto factory = std::make_shared<CPPFactory>(); // Используем CPPFactory для создания элементов
         auto myClass = factory->createClassUnit("MyClass");
@@ -58,9 +78,8 @@ public:
     std::string generateProgramJava() {
         auto factory = std::make_shared<JavaFactory>(); // Используем CPPFactory для создания элементов
         auto myClass = factory->createClassUnit("MyClass");
-
         // Добавляем методы в MyClass
-        myClass->add(factory->createMethodUnit("testFunc1", "void", MethodUnitJava::FINAL ), ClassUnitJava::PUBLIC);
+        myClass->add(factory->createMethodUnit("testFunc1", "void", MethodUnitJava::FINAL), ClassUnitJava::PUBLIC);
         myClass->add(factory->createMethodUnit("testFunc2", "void", 0), ClassUnitJava::PROTECTED);
         myClass->add(factory->createMethodUnit("testFunc3", "void", MethodUnitJava::ABSTARCT), ClassUnitJava::PUBLIC);
 
