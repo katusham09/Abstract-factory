@@ -7,6 +7,25 @@ class Unit
 {
 public:
     using Flags = unsigned int;
+
+    enum AccessModifier {
+        PUBLIC,
+        PROTECTED,
+        PRIVATE,
+        INTERNAL,
+        PROTECTED_INTERNAL,
+        PRIVATE_PROTECTED
+    };
+
+    enum Modifier {
+        STATIC = 1,
+        CONST = 1 << 1,
+        VIRTUAL = 1 << 2,
+        SEALED = 1 << 3,
+        OVERRIDE = 1 << 4,
+        FINAL = 1 << 5,
+        ABSTRACT = 1 << 6
+    };
 public:
     virtual ~Unit() = default;
 
@@ -17,7 +36,7 @@ public:
 //  умный указатель std::shared_ptr).Также эта функция принимает параметр Flags. По умолчанию add() выбрасывает исключение.
 
     virtual std::string compile( unsigned int level = 0 ) const = 0;
-//    Функция генерирует код на C++, соответствующий содержимому элемента. Результат возвращается в виде строки std::string.
+//    Функция генерирует код, соответствующий содержимому элемента. Результат возвращается в виде строки std::string.
 //    В качестве аргумента функция принимает параметр level, указывающий на уровень вложенности узла дерева. Это требуется для корректной
 //    расстановки отступов в начале строк генерируемого кода.
 protected:

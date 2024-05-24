@@ -5,12 +5,6 @@
 
 class MethodUnitJava : public Unit {
 public:
-    enum Modifier {
-        STATIC = 1,
-        FINAL = 1 << 1,
-        ABSTARCT = 1 << 2
-    };
-public:
     MethodUnitJava( const std::string& name, const std::string& returnType, Flags flags ) :
         m_name( name ), m_returnType( returnType ), m_flags( flags ) { }
 
@@ -24,8 +18,8 @@ public:
             result += "static ";
         } else if( m_flags & FINAL ) {
             result += "final ";
-        } else if( m_flags & ABSTARCT ) {
-            result += "abstact ";
+        } else if( m_flags & ABSTRACT ) {
+            result += "abstract ";
         }
         result += m_returnType + " ";
         result += m_name + "()";
@@ -36,7 +30,6 @@ public:
         result += generateShift( level ) + "}\n";
         return result;
     }
-
 private:
     std::string m_name;
     std::string m_returnType;

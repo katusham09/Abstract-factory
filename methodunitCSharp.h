@@ -5,13 +5,6 @@
 
 class MethodUnitCSharp : public Unit {
 public:
-    enum Modifier {
-        STATIC = 1,
-        VIRTUAL = 1 << 1,
-        SEALED = 1 << 2,
-        OVERRIDE = 1 << 3
-    };
-public:
     MethodUnitCSharp( const std::string& name, const std::string& returnType, Flags flags ) :
         m_name( name ), m_returnType( returnType ), m_flags( flags ) { }
 
