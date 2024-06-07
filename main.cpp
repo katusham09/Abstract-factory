@@ -3,19 +3,16 @@
 #include <QApplication>
 #include "iostream"
 
-
 int main(int argc, char *argv[]) {
     QCoreApplication a(argc, argv);
 
-    std::shared_ptr<UnitFactory> factoryPtr = std::make_shared<CPPFactory>();
-//    std::shared_ptr<UnitFactory> factoryPtr = std::make_shared<CSharpFactory>();
-
-//    std::shared_ptr<UnitFactory> factoryPtr = std::make_shared<JavaFactory>();
+    std::cout << "Enter language (cpp, csharp, java): ";
+    std::string language;
+    std::cin >> language;
 
     GenerateCode generator;
-    std::cout << generator.generateProgram(factoryPtr) << std::endl;
+    std::cout << generator.generateProgram(language) << std::endl;
 
-    return 0;
+
+    return a.exec();
 }
-
-
